@@ -365,9 +365,24 @@
             border: 3px solid #e74c3c;
             border-radius: 15px;
             padding: 40px;
-            max-width: 500px;
+            max-width: 900px;
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .invitation-content {
+            flex: 1;
+        }
+
+        .invitation-photo {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #e74c3c;
         }
 
         .invitation-card h2 {
@@ -447,9 +462,9 @@
             <div class="crossword-grid" id="crosswordGrid"></div>
             
             <div class="clues">
-                <h3>Clues:</h3>
+                <h3>Across:</h3>
                 <div class="clue">
-                    <strong>1. Where we first met (5 letters)</strong>
+                    <strong>1. Who is our biggest opp/favorite child (5 letters)</strong>
                     <div class="clue-buttons">
                         <button class="clue-btn" onclick="showHint(1)">💡 Hint</button>
                         <button class="clue-btn" onclick="giveUp(1)">🏳️ Give Up</button>
@@ -457,7 +472,16 @@
                     <p class="hint-text" id="hint1"></p>
                 </div>
                 <div class="clue">
-                    <strong>2. Your favorite food (5 letters)</strong>
+                    <strong>3. Our first date activity was _____ and weed (5 letters)</strong>
+                    <div class="clue-buttons">
+                        <button class="clue-btn" onclick="showHint(3)">💡 Hint</button>
+                        <button class="clue-btn" onclick="giveUp(3)">🏳️ Give Up</button>
+                    </div>
+                    <p class="hint-text" id="hint3"></p>
+                </div>
+                <h3 style="margin-top: 20px;">Down:</h3>
+                <div class="clue">
+                    <strong>2. What app did we meet on (5 letters)</strong>
                     <div class="clue-buttons">
                         <button class="clue-btn" onclick="showHint(2)">💡 Hint</button>
                         <button class="clue-btn" onclick="giveUp(2)">🏳️ Give Up</button>
@@ -465,12 +489,20 @@
                     <p class="hint-text" id="hint2"></p>
                 </div>
                 <div class="clue">
-                    <strong>3. Our first date activity (5 letters)</strong>
+                    <strong>4. I made this for dinner the night I took your v-card (5 letters)</strong>
                     <div class="clue-buttons">
-                        <button class="clue-btn" onclick="showHint(3)">💡 Hint</button>
-                        <button class="clue-btn" onclick="giveUp(3)">🏳️ Give Up</button>
+                        <button class="clue-btn" onclick="showHint(4)">💡 Hint</button>
+                        <button class="clue-btn" onclick="giveUp(4)">🏳️ Give Up</button>
                     </div>
-                    <p class="hint-text" id="hint3"></p>
+                    <p class="hint-text" id="hint4"></p>
+                </div>
+                <div class="clue">
+                    <strong>5. Who is my favorite girl in the world (5 letters)</strong>
+                    <div class="clue-buttons">
+                        <button class="clue-btn" onclick="showHint(5)">💡 Hint</button>
+                        <button class="clue-btn" onclick="giveUp(5)">🏳️ Give Up</button>
+                    </div>
+                    <p class="hint-text" id="hint5"></p>
                 </div>
             </div>
         </div>
@@ -526,18 +558,21 @@
         <!-- Final Screen -->
         <div class="final-screen" id="finalScreen">
             <div class="invitation-card">
-                <h2>💖 You're Invited! 💖</h2>
-                <div class="hearts">💕 💝 💕</div>
-                <div class="date-details">
-                    <p><strong>Date:</strong> February 14th, 2025</p>
-                    <p><strong>Time:</strong> 7:00 PM</p>
-                    <p><strong>Location:</strong> Our favorite Italian restaurant</p>
-                    <p><strong>Dress Code:</strong> Something that makes you feel beautiful</p>
-                    <p style="margin-top: 30px; font-style: italic; text-align: center;">
-                        "I can't wait to spend this special day with you. You make every day feel like Valentine's Day."
-                    </p>
+                <div class="invitation-content">
+                    <h2>💖 You're Invited! 💖</h2>
+                    <div class="hearts">💕 💝 💕</div>
+                    <div class="date-details">
+                        <p><strong>Date:</strong> February 21st, 2025</p>
+                        <p><strong>Time:</strong> 6:15 PM Pickup</p>
+                        <p><strong>Location:</strong> Dallas, TX</p>
+                        <p><strong>Dress Code:</strong> Your green colored dress</p>
+                        <p style="margin-top: 30px; font-style: italic; text-align: center;">
+                            "I can't wait to spend this special day with you. You make every day feel like Valentine's Day."
+                        </p>
+                    </div>
+                    <div class="hearts">💕 💝 💕</div>
                 </div>
-                <div class="hearts">💕 💝 💕</div>
+                <img src="us_reduced.jpg" alt="Us" class="invitation-photo">
             </div>
         </div>
     </div>
@@ -553,21 +588,25 @@
         };
 
         const crosswordAnswers = {
-            1: 'PARIS',
-            2: 'PIZZA',
-            3: 'MOVIE'
+            1: 'PANDA',
+            2: 'HINGE',
+            3: 'LEGOS',
+            4: 'STEAK',
+            5: 'STEPH'
         };
 
         const hints = {
-            1: 'The city of love!',
-            2: 'It has cheese and tomato sauce...',
-            3: 'We watched it in a theater...'
+            1: 'Our favorite furry troublemaker!',
+            2: 'Swipe right app...',
+            3: 'Building blocks of our relationship!',
+            4: 'A juicy main course...',
+            5: 'The most special person to me!'
         };
 
         const prices = {
-            1: 68,
-            2: 89,
-            3: 120
+            1: 75,
+            2: 95,
+            3: 100
         };
 
         // PIN functionality
@@ -615,13 +654,55 @@
 
         function createCrossword() {
             const grid = document.getElementById('crosswordGrid');
-            const layout = [
-                ['1', 'P', 'A', 'R', 'I', 'S', 'X', 'X', 'X', 'X'],
-                ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'],
-                ['2', 'P', 'I', 'Z', 'Z', 'A', 'X', 'X', 'X', 'X'],
-                ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'],
-                ['3', 'M', 'O', 'V', 'I', 'E', 'X', 'X', 'X', 'X']
-            ];
+            
+            // Create a 10x10 grid filled with black cells
+            // Grid coordinates: (0,0) = bottom-left, (9,9) = top-right
+            // But array indices: [0][0] = top-left
+            // So we need to flip: array[9-y][x] for coordinate (x,y)
+            const layout = Array(10).fill(null).map(() => Array(10).fill('X'));
+            
+            // 1-ACROSS: PANDA - Horizontal from (2,6) to (6,6)
+            // y=6 means array row 3 (9-6=3)
+            layout[3][2] = '1P';
+            layout[3][3] = 'A';
+            layout[3][4] = 'N';
+            layout[3][5] = 'D';
+            layout[3][6] = 'A';
+            
+            // 2-DOWN: HINGE - Vertical from (4,8) to (4,4)
+            // x=4, y goes from 8 down to 4, so array rows 1 to 5 (9-8=1 to 9-4=5)
+            layout[1][4] = '2H';
+            layout[2][4] = 'I';
+            layout[3][4] = 'N';  // Intersects with PANDA
+            layout[4][4] = 'G';
+            layout[5][4] = 'E';
+            
+            // 3-ACROSS: LEGOS - Horizontal from (3,4) to (7,4)
+            // y=4 means array row 5 (9-4=5)
+            layout[5][3] = '3L';
+            layout[5][4] = 'E';  // Intersects with HINGE
+            layout[5][5] = 'G';
+            layout[5][6] = 'O';
+            layout[5][7] = 'S';
+            
+            // 4-DOWN: STEAK - Vertical from (7,4) to (7,0)
+            // x=7, y goes from 4 down to 0, so array rows 5 to 9 (9-4=5 to 9-0=9)
+            layout[5][7] = 'S';  // Intersects with LEGOS (already placed)
+            layout[6][7] = 'T';
+            layout[7][7] = 'E';
+            layout[8][7] = 'A';
+            layout[9][7] = 'K';
+            
+            // 5-DOWN: STEPH - Vertical from (2,9) to (2,5)
+            // x=2, y goes from 9 down to 5, so array rows 0 to 4 (9-9=0 to 9-5=4)
+            layout[0][2] = '5S';
+            layout[1][2] = 'T';
+            layout[2][2] = 'E';
+            layout[3][2] = 'P';  // Intersects with PANDA (already placed)
+            layout[4][2] = 'H';
+
+            // Add number to intersecting STEAK start
+            layout[5][7] = '4S';
 
             layout.forEach((row, i) => {
                 row.forEach((cell, j) => {
@@ -630,24 +711,24 @@
                     
                     if (cell === 'X') {
                         div.className += ' black';
-                    } else if (!isNaN(cell)) {
-                        const num = document.createElement('span');
-                        num.className = 'cell-number';
-                        num.textContent = cell;
-                        div.appendChild(num);
+                    } else {
+                        // Check if cell has a number (like '1P', '2H', etc)
+                        const hasNumber = /^\d/.test(cell);
+                        const letter = hasNumber ? cell.slice(1) : cell;
+                        const number = hasNumber ? cell.slice(0, 1) : null;
+                        
+                        if (number) {
+                            const num = document.createElement('span');
+                            num.className = 'cell-number';
+                            num.textContent = number;
+                            div.appendChild(num);
+                        }
                         
                         const input = document.createElement('input');
                         input.maxLength = 1;
                         input.dataset.row = i;
                         input.dataset.col = j;
-                        input.dataset.clue = cell;
-                        input.addEventListener('input', checkCrossword);
-                        div.appendChild(input);
-                    } else {
-                        const input = document.createElement('input');
-                        input.maxLength = 1;
-                        input.dataset.row = i;
-                        input.dataset.col = j;
+                        input.dataset.answer = letter.toUpperCase();
                         input.addEventListener('input', checkCrossword);
                         div.appendChild(input);
                     }
